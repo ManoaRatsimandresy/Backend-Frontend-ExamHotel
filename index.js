@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const pgp = require('pg-promise')();
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const dbConfig = {
     host: 'localhost',
@@ -67,6 +68,9 @@ app.get('/index.ejs', async (req, res) => {
     }
 });
 
+
+// =========================================ADD BOOKING INSERT
+
 app.get('/all-booking.ejs', async (req, res) => {
     try {
         // Récupérer tous les utilisateurs de la table "utilisateurs"
@@ -92,6 +96,30 @@ function formatDate(timestamp) {
 
     return `${year}-${month}-${day} ${hours}:${minutes}`;
 }
+ // ===========================================================================================================================================
+
+
+ app.post('/client.ejs', async (req, res) => { // Remplacez '/inserer-donnees' par la route correcte vers laquelle le formulaire est envoyé
+    const first_name = req.body.first_name;
+    const last_name = req.body.last_name;
+    const date_of_entry = req.body.date_of_entry;
+    const release_date = req.body.release_date;
+    const email = req.body.email;
+    const id_room_type = req.body.room_type;
+    const username = req.body.username;
+    try {
+      // Requête SQL pour l'insertion des données
+     
+        await db.none('INSERT INTO "user" (first_name, last_name, email, username) VALUES ($1, $2, $3, $4)', [first_name, last_name,  email, username]);
+        await db.none('INSERT INTO reservation (date_of_entry, release_date, id_room_type) VALUES ($1, $2, $3)', [date_of_entry, release_date, id_room_type])
+      res.status(201).send('Données insérées avec succès.');
+
+    } catch (err) {
+      console.error('Erreur lors de l\'insertion des données :', err);
+      res.status(500).send('Erreur serveur');
+    }
+  });
+  
 
 app.listen(3000, () => {
     console.log('Serveur en cours d\'exécution sur http://localhost:3000');
