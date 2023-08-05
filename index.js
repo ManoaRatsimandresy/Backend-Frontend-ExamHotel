@@ -26,36 +26,26 @@ app.get('/', (req, res) => {
 });
 
 // Route pour traiter la soumission du formulaire de connexion
+
+app.get('/', (req, res) => {
+    res.render('login');
+});
+
 app.post('/', async (req, res) => {
     const email = req.body.email;
     const firstName = req.body.first_name;
     const lastName = req.body.last_name;
+    
     try {
-        // Vérifier si l'utilisateur existe et correspond à un client, un réceptionniste ou un administrateur
-        // Vous devez adapter la requête SQL en fonction de votre base de données et de votre schéma
-        const user = await db.oneOrNone('SELECT * FROM "user" WHERE email = $1 AND first_name = $2 AND last_name = $3', [email, firstName, lastName]);
-        
+        // Vérifier si l'utilisateur existe et a un rôle d'administrateur (id_role = 1)
+        const user = await db.oneOrNone('SELECT * FROM "user" WHERE email = $1 AND first_name = $2 AND last_name = $3 AND id_role = 1', [email, firstName, lastName]);
+
         if (user) {
-            // L'utilisateur existe et correspond à un client, un réceptionniste ou un administrateur
-
-            // Vérifier le rôle de l'utilisateur dans la table "role"
-            const userRole = await db.oneOrNone('SELECT name FROM "role" WHERE user_id = $1', [user.user_id]);
-
-            if (userRole) {
-                // Si l'utilisateur est un administrateur, redirigez-le vers la page index.ejs
-                if (userRole.name === 'administrateur') {
-                    res.redirect('/index');
-                } else {
-                    // Sinon, redirigez-le vers la page all-employee.ejs
-                    res.redirect('/all-employee');
-                }
-            } else {
-                // Si le rôle de l'utilisateur n'est pas défini, affichez un message d'erreur
-                res.send('Le rôle de l\'utilisateur n\'est pas défini.');
-            }
+            // L'utilisateur existe et a un rôle d'administrateur (id_role = 1)
+            res.redirect('/index.ejs');
         } else {
-            // L'utilisateur n'existe pas ou les informations d'identification sont incorrectes
-            res.send('Identifiants invalides. Veuillez réessayer.');
+            // L'utilisateur n'existe pas ou n'a pas le rôle d'administrateur (id_role = 1)
+            res.send('Identifiants invalides pour un administrateur. Veuillez réessayer.');
         }
     } catch (error) {
         console.error('Erreur lors de la vérification des informations d\'identification:', error);
