@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="image/favicon.png" type="image/png">
+        <title>Hotel Saphir</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="vendors/linericon/style.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+        <!-- main css -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/style2.css">
+        <script src="js/index.js" defer></script>
+        <script src="js/jquery.js"></script>
+    </head>
+    <body>
+        <!--================Header Area =================-->
+        <header class="header_area">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <a class="navbar-brand logo_h" href="index.html"><img src="image/diamant.png" alt="">Hotel Saphir</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                            <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li> 
+                            <li class="nav-item "><a class="nav-link " href="#accomodation">Accomodation</a></li>
+                            <li class="nav-item "><a class="nav-link" href="#royal">Royal Facilities</a></li> 
+                            <li class="nav-item"><a class="nav-link" href="#post"> Posts</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        </ul>
+                    </div> 
+                </nav>
+            </div>
+        </header>
+        <!--================Header Area =================-->
+        
+        <!--================Banner Area =================-->
+        <section class="banner_area">
+            <div class="booking_table d_flex align-items-center hidden">
+            	<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+				<div class="container">
+					<div class="banner_content text-center">
+						<p>Welcome to Hotel Saphir, your oasis of relaxation in the bustling city.</p>
+						<h2>Hotel Saphir</h2>
+                        <p>Whether you're traveling for business or pleasure, our warm and friendly staff will ensure your stay is unforgettable. <br> Enjoy our top-notch facilities, elegant rooms, and delightful cuisine at our award-winning restaurant.</p>
+                        <p>Book your stay at Hotel Saphir now and get ready for an exceptional experience of relaxation and serenity.</p>
+                    </div>
+                </div>
+				</div>
+            </div>
+            <div class="hotel_booking_area position hidden">
+                <div class="container">
+                    <div class="hotel_booking_table">
+                        <div class="col-md-3">
+                            <h2>Book<br> Your Room</h2>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="boking_table">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="book_tabel_item">
+                                            <div class="form-group">
+                                                <div class='input-group date' id='datetimepicker11'>
+                                                    <input type='text' class="form-control" placeholder="Arrival Date"/>
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class='input-group date' id='datetimepicker1'>
+                                                    <input type='text' class="form-control" placeholder="Departure Date"/>
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="book_tabel_item">
+                                            <div class="input-group">
+                                                <select class="wide">
+                                                    <option data-display="Chambre">Chambre</option>
+                                                    <option value="1">Simple</option>
+                                                    <option value="2">VIP</option>
+                                                    <option value="3">Twins</option>
+                                                    <option value="4">Familiale</option>
+                                                </select>
+                                            </div>
+                                            <div class="input-group">
+                                                <select class="wide">
+                                                    <option data-display="Option">Option</option>
+                                                    <option value="1"></option>
+                                                    <option value="2">piscine</option>
+                                                    <option value="3">télé</option>
+                                                </select>
+                                            </div>
+                                            <a class="book_now_btn button_hover mt-5" href="#">Book Now</a>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="book_tabel_item">
+                                            <div class="input-group">
+                                                <select class="wide">
+                                                    <option data-display="Option">Option</option>
+                                                    <option value="1">zakozy</option>
+                                                    <option value="2">piscine</option>
+                                                    <option value="3">télé</option>
+                                                </select>
+                                            </div>
+                                            <div class="input-group">
+                                                <select class="wide">
+                                                    <option data-display="Nombre de personne">1 à 2</option>
+                                                    <option value="1">1 à 5</option>
+                                                </select>
+                                            </div>
+                                           
+                                        </div>
+                                        
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!--================Banner Area =================-->
+        
+        <!--================ Accomodation Area  =================-->
+        <section class="accomodation_area section_gap" id="accomodation">
+            <div class="container hidden">
+                <div class="section_title text-center hidden">
+                    <h2 class="title_color hidden">Hotel Accomodation</h2>
+                    <p>We all live in an age that belongs to the young at heart. Life that is becoming extremely fast, </p>
+                </div>
+                <div class="row mb_30 hidden">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="accomodation_item text-center">
+                            <div class="hotel_img">
+                                <img src="image/room1.jpg" alt="">
+                                <a href="#" class="btn theme_btn button_hover">Book Now</a>
+                            </div>
+                            <a href="#"><h4 class="sec_h4">Double Deluxe Room</h4></a>
+                            <h5>$250<small>/night</small></h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 hidden">
+                        <div class="accomodation_item text-center">
+                            <div class="hotel_img">
+                                <img src="image/room2.jpg" alt="">
+                                <a href="#" class="btn theme_btn button_hover">Book Now</a>
+                            </div>
+                            <a href="#"><h4 class="sec_h4">Single Deluxe Room</h4></a>
+                            <h5>$200<small>/night</small></h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 hidden">
+                        <div class="accomodation_item text-center">
+                            <div class="hotel_img">
+                                <img src="image/room3.jpg" alt="">
+                                <a href="#" class="btn theme_btn button_hover">Book Now</a>
+                            </div>
+                            <a href="#"><h4 class="sec_h4">Honeymoon Suit</h4></a>
+                            <h5>$750<small>/night</small></h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="accomodation_item text-center">
+                            <div class="hotel_img">
+                                <img src="image/room4.jpg" alt="">
+                                <a href="#" class="btn theme_btn button_hover">Book Now</a>
+                            </div>
+                            <a href="#"><h4 class="sec_h4">Economy Double</h4></a>
+                            <h5>$200<small>/night</small></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================ Accomodation Area  =================-->
+        
+        <!--================ Facilities Area  =================-->
+        <section class="facilities_area section_gap " id="royal">
+            <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background="">  
+            </div>
+            <div class="container hidden">
+                <div class="section_title text-center hidden">
+                    <h2 class="title_w">Royal Facilities</h2>
+                    <p>Who are in extremely love with eco friendly system.</p>
+                </div>
+                <div class="row mb_30 hidden">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="facilities_item">
+                            <h4 class="sec_h4"><i class="lnr lnr-dinner"></i>Restaurant</h4>
+                            <p>Indulge in exquisite flavors at Hotel's renowned restaurant. 
+                                Our culinary haven offers a delectable fusion of international cuisines, elevating your dining experience to new heights</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="facilities_item">
+                            <h4 class="sec_h4"><i class="lnr lnr-store"></i>Room Conference</h4>
+                            <p>Experience seamless business gatherings at Hotel Saphir's conference room. 
+                                Equipped with modern amenities and attentive service, host your next event with confidence and success</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="facilities_item">
+                            <h4 class="sec_h4"><i class="lnr lnr-shirt"></i>Swimming Pool</h4>
+                            <p>Escape to blissful relaxation at Hotel Saphir's sparkling swimming pool. 
+                                Enjoy a refreshing dip, bask in the sun.
+                                Immerse yourself in tranquility and soak up the sun in our inviting poolside oasis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================ Facilities Area  =================-->        
+        
+        <!--================ Latest Blog Area  =================-->
+        <section class="latest_blog_area section_gap" id="post">
+            <div class="container hidden">
+                <div class="section_title text-center hidden">
+                    <h2 class="title_color">latest posts from blog</h2>
+                    <p>The French Revolution constituted for the conscience of the dominant aristocratic class a fall from </p>
+                </div>
+                <div class="row mb_30 hidden">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-recent-blog-post">
+                            <div class="thumb">
+                                <img class="img-fluid" src="image/blog/blog-1.jpg" alt="post">
+                            </div>
+                            <div class="details">
+                                <div class="tags">
+                                    <a href="#" class="button_hover tag_btn">Travel</a>
+                                    <a href="#" class="button_hover tag_btn">Life Style</a>
+                                </div>
+                                <a href="#"><h4 class="sec_h4">Low Cost Advertising</h4></a>
+                                <p>Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.</p>
+                                <h6 class="date title_color">31st January,2018</h6>
+                            </div>	
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 hidden">
+                        <div class="single-recent-blog-post">
+                            <div class="thumb">
+                                <img class="img-fluid" src="image/blog/blog-2.jpg" alt="post">
+                            </div>
+                            <div class="details">   
+                                <div class="tags">
+                                    <a href="#" class="button_hover tag_btn">Travel</a>
+                                    <a href="#" class="button_hover tag_btn">Life Style</a>
+                                </div>
+                                <a href="#"><h4 class="sec_h4">Creative Outdoor Ads</h4></a>
+                                <p>Self-doubt and fear interfere with our ability to achieve or set goals. Self-doubt and fear are</p>
+                                <h6 class="date title_color">31st January,2018</h6>
+                            </div>	
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 hidden">
+                        <div class="single-recent-blog-post">
+                            <div class="thumb">
+                                <img class="img-fluid" src="image/blog/blog-3.jpg" alt="post">
+                            </div>
+                            <div class="details">
+                                <div class="tags">
+                                    <a href="#" class="button_hover tag_btn">Travel</a>
+                                    <a href="#" class="button_hover tag_btn">Life Style</a>
+                                </div>
+                                <a href="#"><h4 class="sec_h4">It S Classified How To Utilize Free</h4></a>
+                                <p>Why do you want to motivate yourself? Actually, just answering that question fully can </p>
+                                <h6 class="date title_color">31st January,2018</h6>
+                            </div>	
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================ Recent Area  =================-->
+        <section class="contact-address-area bg-dark hidden" id="contact">
+            <div class="container">
+                <div class="sec-title-style1 text-center max-width">
+                    <div class="title">Contact Us</div>
+                    <div class="text"><div class="decor-left"><span></span></div><p>Quick Contact</p><div class="decor-right"><span></span></div></div>
+                    <div class="bottom-text">
+                        <p>Fixyman is proud to be the name that nearly 1 million homeowners have trusted since 1996 for home improvement and repair, providing virtually any home repair.</p>
+                    </div>
+                </div>
+                    
+            </div>
+            <div class="container hidden" >
+                <div class="row hidden">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="contact-form">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="sec-title-style1 float-left hidden">
+                                        <div class="title text-white">Send Your Message</div>
+                                        <div class="text"><div class="decor-left text-white"><span></span></div><p>Contact Form</p></div>
+                                    </div>
+                                    
+                                </div> 
+                            </div>   
+                            <div class="inner-box">
+                                <form id="contact-form" name="contact_form" class="default-form" action="inc/sendmail.php" method="post">
+                                    <div class="row">
+                                        <div class="col-xl-6 col-lg-12">
+                                            <div class="row">
+                                                <div class="col-xl-6">
+                                                    <div class="input-box">   
+                                                        <input type="text" name="form_name" value="" placeholder="Name" required="">
+                                                    </div> 
+                                                     <div class="input-box"> 
+                                                        <input type="text" name="form_phone" value="" placeholder="Phone">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <div class="input-box"> 
+                                                        <input type="email" name="form_email" value="" placeholder="Email" required="">
+                                                    </div>
+                                                    <div class="input-box"> 
+                                                        <input type="text" name="form_website" value="" placeholder="Website">
+                                                    </div> 
+                                                </div>  
+                                            </div> 
+                                            <div class="row">
+                                                 <div class="col-xl-12">
+                                                    <div class="input-box"> 
+                                                        <input type="text" name="form_subject" value="" placeholder="Subject">
+                                                    </div>     
+                                                </div> 
+                                            </div>   
+                                        </div>
+                                        <div class="col-xl-6 col-lg-12">
+                                            <div class="input-box">    
+                                                <textarea name="form_message" placeholder="Your Message..." required=""></textarea>
+                                            </div>
+                                            <div class="button-box">
+                                                <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
+                                                <button type="submit" data-loading-text="Please wait...">Send Message<span class="flaticon-next"></span></button>    
+                                            </div>         
+                                        </div> 
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section> 
+        
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+        <script src="js/jquery.ajaxchimp.min.js"></script>
+        <script src="js/mail-script.js"></script>
+        <script src="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+        <script src="vendors/nice-select/js/jquery.nice-select.js"></script>
+        <script src="js/mail-script.js"></script>
+        <script src="js/stellar.js"></script>
+        <script src="vendors/lightbox/simpleLightbox.min.js"></script>
+        <script src="js/custom.js"></script>
+    </body>
+</html>
