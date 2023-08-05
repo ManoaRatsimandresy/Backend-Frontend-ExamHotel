@@ -10,7 +10,7 @@ const dbConfig = {
     port: 5432,
     database: 'hotel',
     user: 'postgres',
-    password: 'tsilavina'
+    password: '123KyrieIrving'
 };
 const db = pgp(dbConfig);
 
@@ -26,20 +26,14 @@ app.get('/', (req, res) => {
     res.render('login');
 });
 
-// Route pour traiter la soumission du formulaire de connexion
-
-app.get('/', (req, res) => {
-    res.render('login');
-});
-
 app.post('/', async (req, res) => {
     const email = req.body.email;
-    const firstName = req.body.first_name;
-    const lastName = req.body.last_name;
+    const username = req.body.username;
+    const password = req.body.password;
     
     try {
         // Vérifier si l'utilisateur existe et a un rôle d'administrateur (id_role = 1)
-        const user = await db.oneOrNone('SELECT * FROM "user" WHERE email = $1 AND first_name = $2 AND last_name = $3 AND id_role = 1', [email, firstName, lastName]);
+        const user = await db.oneOrNone('SELECT * FROM "user" WHERE email = $1 AND username = $2 AND password = $3 AND id_role = 1', [email, username, password]);
 
         if (user) {
             // L'utilisateur existe et a un rôle d'administrateur (id_role = 1)
