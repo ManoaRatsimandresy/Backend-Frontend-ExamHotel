@@ -10,7 +10,8 @@ const dbConfig = {
     port: 5432,
     database: 'hotel',
     user: 'postgres',
-    password: 'allan'
+    password: 'tsilavina'
+
 };
 const db = pgp(dbConfig);
 
@@ -118,6 +119,9 @@ function formatDate(timestamp) {
     }
   });
   
+  app.get('/all-employee.ejs', (req, res) => {
+    res.render('all-employee');
+});
 
 app.listen(3000, () => {
     console.log('Serveur en cours d\'exécution sur http://localhost:3000');
