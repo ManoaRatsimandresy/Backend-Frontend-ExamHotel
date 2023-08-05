@@ -53,6 +53,10 @@ app.post('/', async (req, res) => {
     }
 });
 
+app.get('/client.ejs', (req, res) => {
+    res.render('client');
+});
+
 
 app.get('/index.ejs', async (req, res) => {
     try {
@@ -69,7 +73,7 @@ app.get('/index.ejs', async (req, res) => {
 
 app.get('/all-booking.ejs', async (req, res) => {
     try {
-        // Récupérer tous les utilisateurs de la table "utilisateurs"
+        // Récupérer les utilisateurs de la table "user"
         const reservations = await db.any('SELECT res.start_timestamp, res.end_timestamp, u.first_name , u.last_name , u.email, room_type.name FROM reservation res INNER JOIN "user" u ON res.user_id = u.user_id INNER JOIN "room" ON res.room_id = room.id INNER JOIN "room_type" ON room_type.id = room.id_room_type');
         reservations.forEach((reservation) => {
             reservation.start_timestamp = formatDate(reservation.start_timestamp);
