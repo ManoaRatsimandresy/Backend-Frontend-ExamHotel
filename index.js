@@ -25,12 +25,6 @@ app.get('/', (req, res) => {
     res.render('login');
 });
 
-// Route pour traiter la soumission du formulaire de connexion
-
-app.get('/', (req, res) => {
-    res.render('login');
-});
-
 app.post('/', async (req, res) => {
     const email = req.body.email;
     const firstName = req.body.first_name;
