@@ -4,7 +4,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="image/favicon.png" type="image/png">
+        <link rel="icon" href="image/diamant.png" type="image/png">
         <title>Hotel Saphir</title>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="bootstrap-4.6.2-dist/css/bootstrap.css">
@@ -18,6 +18,20 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/responsive.css">
         <link rel="stylesheet" href="css/style2.css">
+
+
+	<link rel="stylesheet" href="css/_accomodation.css">
+	<link rel="stylesheet" href="css/_banner.css">
+	<link rel="stylesheet" href="css/_blog.css">
+	<link rel="stylesheet" href="css/_button.css">
+	<link rel="stylesheet" href="css/_contact.css">
+	<link rel="stylesheet" href="css/_element.css">
+	<link rel="stylesheet" href="css/_footer.css">
+	<link rel="stylesheet" href="css/">
+	<link rel="stylesheet" href="css/_header.css">
+	<link rel="stylesheet" href="css/_predefine.css">
+	<link rel="stylesheet" href="css/_testimonial.css">
+	<link rel="stylesheet" href="css/_variables.css">
         <script src="js/index.js" defer></script>
         <script src="js/jquery.js"></script>
     </head>
@@ -36,10 +50,9 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li> 
+                            <li class="nav-item active"><a class="nav-link" href="#">Home</a></li> 
                             <li class="nav-item "><a class="nav-link " href="#accomodation">Accomodation</a></li>
                             <li class="nav-item "><a class="nav-link" href="#royal">Royal Facilities</a></li> 
-                            <li class="nav-item"><a class="nav-link" href="#post"> Posts</a></li>
                             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                         </ul>
                     </div> 
@@ -65,77 +78,58 @@
             <div class="hotel_booking_area position hidden">
                 <div class="container">
                     <div class="hotel_booking_table">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <h2>Book<br> Your Room</h2>
                         </div>
-                        <div class="col-md-9">
-                            <div class="boking_table">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="book_tabel_item">
-                                            <div class="form-group">
-                                                <div class='input-group date' id='datetimepicker11'>
-                                                    <input type='text' class="form-control" placeholder="Arrival Date"/>
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class='input-group date' id='datetimepicker1'>
-                                                    <input type='text' class="form-control" placeholder="Departure Date"/>
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="book_tabel_item">
-                                            <div class="input-group">
+                        <div class="col-md-7">
+                            <div class="boking_table">                                    
+                                        <form class="book_tabel_item" method="POST" action="/Room_dispo">
+                                            <div class="input-group" name="room_type">
                                                 <select class="wide">
                                                     <option data-display="Chambre">Chambre</option>
-                                                    <option value="1">Simple</option>
-                                                    <option value="2">VIP</option>
-                                                    <option value="3">Twins</option>
-                                                    <option value="4">Familiale</option>
+                                                    <option value="1" >Simple</option>
+                                                    <option value="2">Twins</option>
+                                                    <option value="3">Familiale</option>
+                                                    <option value="4">VIP</option>
                                                 </select>
                                             </div>
-                                            <div class="input-group">
+                                            <div class="input-group" name="city">
                                                 <select class="wide">
-                                                    <option data-display="Option">Option</option>
-                                                    <option value="1"></option>
-                                                    <option value="2">piscine</option>
-                                                    <option value="3">télé</option>
-                                                </select>
-                                            </div>
-                                            <a class="book_now_btn button_hover mt-5" href="#">Book Now</a>
+                                                    <option data-display="Place">Place</option>
+                                                    <option value="1">Toliara</option>
+                                                    <option value="2">Morondava</option>
+                                                    <option value="3">Fianarantsoa</option>
+                                                    <option value="4">Antsirabe</option>
+                                                    <option value="5">Tamatave</option>
+                                                    <option value="6">Antananarivo</option>
+                                                    <option value="7">Majunga</option>
+                                                    <option value="8">Antsiranana</option>
+                                                    <option value="9">Sambava</option>
+                                                    <option value="10">Manakara</option>                                                   
 
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="book_tabel_item">
-                                            <div class="input-group">
-                                                <select class="wide">
-                                                    <option data-display="Option">Option</option>
-                                                    <option value="1">zakozy</option>
-                                                    <option value="2">piscine</option>
-                                                    <option value="3">télé</option>
                                                 </select>
                                             </div>
-                                            <div class="input-group">
+                                        </form>
+                                    
+                                    <div>
+                                        <div class="book_tabel_item">
+                                            <div class="input-group" name="option">
+                                                <select class="wide">
+                                                    <option data-display="Option">Option</option>
+                                                    <option value="1">Jacuzzi</option>
+                                                    <option value="2">Piscine</option>
+                                                    <option value="3">Baignoire</option>
+                                                </select>
+                                            </div>
+                                            <div class="input-group" name="number">
                                                 <select class="wide">
                                                     <option data-display="Nombre de personne">1 à 2</option>
                                                     <option value="1">1 à 5</option>
                                                 </select>
                                             </div>
-                                           
                                         </div>
-                                        
-
                                     </div>
-                                </div>
+                                    <input class="book_now_btn button_hover mt-5" type="submit" value="Search">
                             </div>
                         </div>
 
@@ -235,67 +229,6 @@
             </div>
         </section>
         <!--================ Facilities Area  =================-->        
-        
-        <!--================ Latest Blog Area  =================-->
-        <section class="latest_blog_area section_gap" id="post">
-            <div class="container hidden">
-                <div class="section_title text-center hidden">
-                    <h2 class="title_color">latest posts from blog</h2>
-                    <p>The French Revolution constituted for the conscience of the dominant aristocratic class a fall from </p>
-                </div>
-                <div class="row mb_30 hidden">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-recent-blog-post">
-                            <div class="thumb">
-                                <img class="img-fluid" src="image/blog/blog-1.jpg" alt="post">
-                            </div>
-                            <div class="details">
-                                <div class="tags">
-                                    <a href="#" class="button_hover tag_btn">Travel</a>
-                                    <a href="#" class="button_hover tag_btn">Life Style</a>
-                                </div>
-                                <a href="#"><h4 class="sec_h4">Low Cost Advertising</h4></a>
-                                <p>Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.</p>
-                                <h6 class="date title_color">31st January,2018</h6>
-                            </div>	
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 hidden">
-                        <div class="single-recent-blog-post">
-                            <div class="thumb">
-                                <img class="img-fluid" src="image/blog/blog-2.jpg" alt="post">
-                            </div>
-                            <div class="details">   
-                                <div class="tags">
-                                    <a href="#" class="button_hover tag_btn">Travel</a>
-                                    <a href="#" class="button_hover tag_btn">Life Style</a>
-                                </div>
-                                <a href="#"><h4 class="sec_h4">Creative Outdoor Ads</h4></a>
-                                <p>Self-doubt and fear interfere with our ability to achieve or set goals. Self-doubt and fear are</p>
-                                <h6 class="date title_color">31st January,2018</h6>
-                            </div>	
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 hidden">
-                        <div class="single-recent-blog-post">
-                            <div class="thumb">
-                                <img class="img-fluid" src="image/blog/blog-3.jpg" alt="post">
-                            </div>
-                            <div class="details">
-                                <div class="tags">
-                                    <a href="#" class="button_hover tag_btn">Travel</a>
-                                    <a href="#" class="button_hover tag_btn">Life Style</a>
-                                </div>
-                                <a href="#"><h4 class="sec_h4">It S Classified How To Utilize Free</h4></a>
-                                <p>Why do you want to motivate yourself? Actually, just answering that question fully can </p>
-                                <h6 class="date title_color">31st January,2018</h6>
-                            </div>	
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--================ Recent Area  =================-->
         <section class="contact-address-area bg-dark hidden" id="contact">
             <div class="container">
                 <div class="sec-title-style1 text-center max-width">
