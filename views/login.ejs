@@ -13,29 +13,32 @@
     <div class="container right-panel-active">
         <!-- Sign Up -->
         <div class="container__form container--signup">
-            <form action="#" class="form" id="form1">
+            <form action="/signup" method="POST" class="form" id="form1">
                 <h2 class="form__title"> <b>Sign Up</b></h2>
-                <input type="text" placeholder="Username" class="input" />
-                <input type="email" placeholder="Email" class="input" />
-                <input type="password" placeholder="Password" class="input" />
-                <input type="password" placeholder="Birthday" class="input" />
-                <input type="password" placeholder="CIN" class="input" />
-                <input type="password" placeholder="Number" class="input" />
-                <input type="password" placeholder="Gender" class="input" />
-                <button class="btn">Sign Up</button>
+                <input type="text" placeholder="Nom" class="input" name="first_name" required/>
+                <input type="text" placeholder="Prènom(s)" class="input" name="last_name" required/>
+                <input type="text" placeholder="Username" class="input" name="username" required/>
+                <input type="email" placeholder="Email" class="input" name="email" required/>
+                <input type="password" placeholder="Password" class="input" name="password" required />
+                <label for="Birthdate">Birthdate</label>
+                <input type="date" placeholder="Birthday" class="input" name="birthdate" required />
+                <input type="text" minlength="10" maxlength="" placeholder="CIN number" class="input" name="cin" required />
+                <input type="number" placeholder="Number" class="input" name="number" required />
+                <input type="text" maxlength="1" placeholder="Genre (M/F)" class="input" name="genre" pattern="[MFmf]" required />
+                <button class="btn" name="signup">Sign Up</button>
             </form>
             
         </div>
     
         <!-- Sign In -->
         <div class="container__form container--signin">
-            <form action="/" class="form" id="form2" method="POST">
+            <form action="/login" class="form" id="form2" method="POST">
                 <h2 class="form__title"> <b>Sign In</b></h2>
                 <input type="text" placeholder="Username" class="input" name="username" required/>
-                <input type="email" placeholder="Email" class="input"name="email"  required/>
+                <input type="email" placeholder="Email" class="input" name="email"  required/>
                 <input type="password" placeholder="Password" class="input" name="password" required/>
                 <a href="#" class="link">Forgot your password?</a>
-                <button class="btn" type="submit" >Sign In</button>
+                <button class="btn" type="submit"  name="login">Sign In</button>
             </form>
         </div>
     
@@ -54,17 +57,3 @@
 
 </body>
 </html>
-
- <!-- <h1>Connexion</h1> 
-    <form action="/" method="POST">
-        <label>Email:</label>
-        <input type="email" name="email" required>
-        <br>
-        <label>Prénom:</label>
-        <input type="text" name="first_name" required>
-        <br>
-        <label>Nom:</label>
-        <input type="text" name="last_name" required>
-        <br>
-        <button type="submit">Se connecter</button>
-    </form> -->
