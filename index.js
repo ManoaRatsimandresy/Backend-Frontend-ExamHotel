@@ -3,7 +3,6 @@ const express = require('express');
 const app = express();
 const pgp = require('pg-promise')();
 const path = require('path');
-const bodyParser = require('body-parser');
 
 const dbConfig = {
     host: 'localhost',
