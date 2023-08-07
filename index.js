@@ -9,7 +9,7 @@ const dbConfig = {
     port: 5432,
     database: 'hotel',
     user: 'postgres',
-    password: '123KyrieIrving'
+    password: 'tsilavina'
 
 };
 const db = pgp(dbConfig);
@@ -138,6 +138,26 @@ function formatDate(timestamp) {
     }
 });
 
+
+//============================================== CLIENT
+
+app.post('/room_dispo', async (req, res) => {
+    try {
+        const room_type = req.body.room_type;
+        const city = req.body.city;
+        const description = req.body.description;
+        // Récupérer les utilisateurs de la table "user"
+        const room_dispo = await db.any('SELECT h.name, h.address, rt.name, rt.base_price, c.name FROM room r INNER JOIN room_type rt ON r.id = rt.id INNER JOIN hotel h ON r.id_hotel = h.id INNER JOIN city ON h.id_city = c.id WHERE rt.name =$1 AND h.name =$2 AND c.name = ', [room_type, city, description]);
+
+        res.render('client', { room_dispo });
+    } catch (error) {
+        console.error('Erreur lors de la récupération des chambres:', error);
+        res.status(500).send('Erreur lors de la récupération des chambres');
+    }
+});
+
+
 app.listen(3000, () => {
     console.log('Serveur en cours d\'exécution sur http://localhost:3000');
 });
+
