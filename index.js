@@ -11,6 +11,7 @@ const dbConfig = {
     database: 'hotel',
     user: 'postgres',
     password: 'tsilavina'
+
 };
 const db = pgp(dbConfig);
 
