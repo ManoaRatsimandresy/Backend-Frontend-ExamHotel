@@ -10,7 +10,7 @@ const dbConfig = {
     port: 5432,
     database: 'hotel',
     user: 'postgres',
-    password: 'tsilavina'
+    password: '123KyrieIrving'
 
 };
 const db = pgp(dbConfig);
@@ -35,10 +35,16 @@ app.post('/', async (req, res) => {
     try {
         // Vérifier si l'utilisateur existe et a un rôle d'administrateur (id_role = 1)
         const user = await db.oneOrNone('SELECT * FROM "user" WHERE email = $1 AND username = $2 AND password = $3 AND id_role = 1', [email, username, password]);
+        
+        // Vérifier si l'utilisateur existe et a un rôle de client ou visiteur (id_role = 3)
+        const client = await db.oneOrNone('SELECT * FROM "user" WHERE email = $1 AND username = $2 AND password = $3 AND id_role = 3', [email, username, password]);
+
 
         if (user) {
             // L'utilisateur existe et a un rôle d'administrateur (id_role = 1)
             res.redirect('/index.ejs');
+        }else if(client){
+            res.redirect('/client.ejs');
         } else {
             // L'utilisateur n'existe pas ou n'a pas le rôle d'administrateur (id_role = 1)
             res.send('Identifiants invalides pour un administrateur. Veuillez réessayer.');
