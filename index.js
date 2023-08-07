@@ -79,6 +79,10 @@ app.post('/login', async (req, res) => {
 app.get('/client.ejs', (req, res) => {
     res.render('client');
 });
+app.get('/all-room.ejs', (req, res) => {
+    res.render('all-room');
+});
+
 
 
 app.get('/index.ejs', async (req, res) => {
