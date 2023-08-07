@@ -118,8 +118,18 @@ function formatDate(timestamp) {
     }
   });
   
-  app.get('/all-employee.ejs', (req, res) => {
-    res.render('all-employee');
+  app.get('/all-employee.ejs', async (req, res) => {
+    
+    try {
+        // Récupérer les utilisateurs de la table "user"
+        const employees = await db.any('select first_name, last_name, society_name, number, email, r.name from "user" INNER JOIN role r ON "user".id_role = r.id_role where "user".id_role = 4 OR "user".id_role = 2');
+        
+        res.render('all-employee', { employees });
+        // Rendre le fichier EJS et transmettre les données des utilisateurs
+    } catch (error) {
+        console.error('Erreur lors de la récupération des utilisateurs:', error);
+        res.status(500).send('Erreur lors de la récupération des utilisateurs');
+    }
 });
 
 app.listen(3000, () => {
