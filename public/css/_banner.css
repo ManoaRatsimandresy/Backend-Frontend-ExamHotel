@@ -1,0 +1,150 @@
+/*============= Start banner_area css =============*/
+.banner_area {
+     background: #04091e;
+     position: relative;
+     z-index: 1;
+   }
+   
+   .banner_area .bg-parallax {
+     background: url("../image/banner_bg.jpg") no-repeat scroll center 0 / cover;
+     opacity: 0.50;
+   }
+   
+   .banner_area .position {
+     width: 100%;
+     bottom: 0;
+     left: 0;
+     position: absolute;
+   }
+   
+   .booking_table {
+     position: relative;
+     overflow: hidden;
+     width: 100%;
+     min-height: 800px;
+   }
+   
+   .overlay {
+     position: absolute;
+     left: 0;
+     right: 0;
+     top: 0;
+     height: 125%;
+     bottom: 0;
+     z-index: -1;
+   }
+   
+   .banner_content {
+     color: #fff;
+     margin-bottom: 94px;
+   }
+   
+   .banner_content h6 {
+     font-size: 14px;
+     line-height: 30px;
+     text-transform: uppercase;
+     letter-spacing: 1.4px;
+     font-weight: 400;
+   }
+   
+   .banner_content h2 {
+     font-size: 60px;
+     line-height: 60px;
+     font-weight: 700;
+   }
+   
+   .banner_content p {
+     font-weight: 300;
+     font-size: 14px;
+     line-height: 24px;
+     padding: 10px 0px 20px;
+   }
+   /*============= End banner_area css =============*/
+   
+   .hotel_booking_area {}
+   
+   .hotel_booking_table {
+     background: #04091e;
+     align-items: center;
+     padding: 40px 50px 30px;
+     display: flex;
+   }
+   
+   .hotel_booking_table h2 {
+     font-size: 24px;
+     line-height: 30px;
+     color: #fff;
+     text-transform: uppercase;
+   }
+   
+   .boking_table {
+     margin-left: -50px;
+   }
+   
+   .book_tabel_item .form-group {
+     margin-bottom: 0px;
+   }
+   
+   .book_tabel_item .form-group .input-group {
+     position: relative;
+   }
+   
+   .book_tabel_item .form-group .input-group .form-control {
+     border: 1px solid #2b3146;
+     background: transparent;
+     border-radius: 0px;
+     font-size: 13px;
+     line-height: 38px;
+     padding: 0px 20px;
+     color: #777777;
+     z-index: 0;
+   }
+   
+   .book_tabel_item .form-group .input-group .form-control:focus {
+     outline: none;
+     box-shadow: none;
+   }
+   
+   .book_tabel_item .form-group .input-group .input-group-addon {
+     background: transparent;
+     padding: 0px;
+     border: 0px;
+     position: absolute;
+     right: 20px;
+     top: 50%;
+     transform: translateY(-50%);
+     color: #777777;
+     z-index: 2;
+   }
+   
+   .book_tabel_item .input-group {
+     margin-bottom: 10px;
+   }
+   
+   .book_tabel_item .nice-select {
+     background: transparent;
+     border-radius: 0px;
+     border: 1px solid #2b3146;
+     font-size: 13px;
+     line-height: 40px;
+     height: 40px;
+     color: #777;
+   }
+   
+   .book_tabel_item .nice-select:after {
+     content: "\e874";
+     font-family: 'Linearicons-Free';
+     font-size: 13px;
+     color: #777777;
+     border: 0px;
+     top: 0;
+     margin-top: 0px;
+     right: 20px;
+     transform: rotate(0);
+     transform-origin: 0 0;
+   }
+   
+   /*=========== breadcrumb_area css =============*/
+   
+   .breadcrumb
+   
