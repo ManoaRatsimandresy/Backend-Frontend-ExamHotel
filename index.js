@@ -25,24 +25,46 @@ app.set('views', path.join(__dirname, 'views'));
 app.get('/', (req, res) => {
     res.render('login');
 });
+// Gestionnaire pour le formulaire de Sign Up
+app.post('/signup', async (req, res) => {
+    const first_name = req.body.first_name;
+    const last_name = req.body.last_name;
+    const username = req.body.username;
+    const email = req.body.email;
+    const password = req.body.password;
+    const birthdate = req.body.birthdate;
+    const cin = req.body.cin;
+    const number = req.body.number;
+    const genre = req.body.genre;
 
-app.post('/', async (req, res) => {
+    try {
+
+        await db.none('INSERT INTO "user" (first_name, last_name, username, email, password, birthdate, cin, number, gender, id_role) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, 3)', [first_name, last_name, username, email, password, birthdate, Number(cin), number, genre]);
+        res.redirect('/client.ejs');
+    } catch (err) {
+        console.error('Erreur lors de l\'insertion des données :', err);
+        res.status(500).send('Erreur serveur');
+    }
+});
+
+// Gestionnaire pour le formulaire de Login
+app.post('/login', async (req, res) => {
+    
     const email = req.body.email;
     const username = req.body.username;
     const password = req.body.password;
-    
+
     try {
         // Vérifier si l'utilisateur existe et a un rôle d'administrateur (id_role = 1)
         const user = await db.oneOrNone('SELECT * FROM "user" WHERE email = $1 AND username = $2 AND password = $3 AND id_role = 1', [email, username, password]);
-        
+
         // Vérifier si l'utilisateur existe et a un rôle de client ou visiteur (id_role = 3)
         const client = await db.oneOrNone('SELECT * FROM "user" WHERE email = $1 AND username = $2 AND password = $3 AND id_role = 3', [email, username, password]);
-
 
         if (user) {
             // L'utilisateur existe et a un rôle d'administrateur (id_role = 1)
             res.redirect('/index.ejs');
-        }else if(client){
+        } else if (client) {
             res.redirect('/client.ejs');
         } else {
             // L'utilisateur n'existe pas ou n'a pas le rôle d'administrateur (id_role = 1)
@@ -100,10 +122,10 @@ function formatDate(timestamp) {
 
     return `${year}-${month}-${day} ${hours}:${minutes}`;
 }
- // ===========================================================================================================================================
+// ===========================================================================================================================================
 
 
- app.post('/client.ejs', async (req, res) => { // Remplacez '/inserer-donnees' par la route correcte vers laquelle le formulaire est envoyé
+app.post('/client.ejs', async (req, res) => { // Remplacez '/inserer-donnees' par la route correcte vers laquelle le formulaire est envoyé
     const first_name = req.body.first_name;
     const last_name = req.body.last_name;
     const date_of_entry = req.body.date_of_entry;
@@ -112,24 +134,24 @@ function formatDate(timestamp) {
     const id_room_type = req.body.room_type;
     const username = req.body.username;
     try {
-      // Requête SQL pour l'insertion des données
-     
-        await db.none('INSERT INTO "user" (first_name, last_name, email, username) VALUES ($1, $2, $3, $4)', [first_name, last_name,  email, username]);
+        // Requête SQL pour l'insertion des données
+
+        await db.none('INSERT INTO "user" (first_name, last_name, email, username) VALUES ($1, $2, $3, $4)', [first_name, last_name, email, username]);
         await db.none('INSERT INTO reservation (date_of_entry, release_date, id_room_type) VALUES ($1, $2, $3)', [date_of_entry, release_date, id_room_type])
-      res.status(201).send('Données insérées avec succès.');
+        res.status(201).send('Données insérées avec succès.');
 
     } catch (err) {
-      console.error('Erreur lors de l\'insertion des données :', err);
-      res.status(500).send('Erreur serveur');
+        console.error('Erreur lors de l\'insertion des données :', err);
+        res.status(500).send('Erreur serveur');
     }
-  });
-  
-  app.get('/all-employee.ejs', async (req, res) => {
-    
+});
+
+app.get('/all-employee.ejs', async (req, res) => {
+
     try {
         // Récupérer les utilisateurs de la table "user"
         const employees = await db.any('select first_name, last_name, society_name, number, email, r.name from "user" INNER JOIN role r ON "user".id_role = r.id_role where "user".id_role = 4 OR "user".id_role = 2');
-        
+
         res.render('all-employee', { employees });
         // Rendre le fichier EJS et transmettre les données des utilisateurs
     } catch (error) {
