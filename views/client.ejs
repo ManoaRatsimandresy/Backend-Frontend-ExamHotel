@@ -76,7 +76,7 @@
 				</div>
             </div>
             <div class="hotel_booking_area position hidden">
-                <div class="container">
+                <!-- <div class="container">
                     <div class="hotel_booking_table">
                         <div class="col-md-4">
                             <h2>Book<br> Your Room</h2>
@@ -109,7 +109,7 @@
 
                                                 </select>
                                             </div>
-                                        </form>
+                                        
                                     
                                     <div>
                                         <div class="book_tabel_item">
@@ -129,12 +129,36 @@
                                             </div>
                                         </div>
                                     </div>
+                                </form>
                                     <input class="book_now_btn button_hover mt-5" type="submit" value="Search">
                             </div>
                         </div>
 
                     </div>
 
+                </div> -->
+                <div class="container mt-5">
+                    <h1>Chambres Disponibles</h1>
+                    <table class="table mt-3">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Hôtel</th>
+                                <th scope="col">Type de Chambre</th>
+                                <th scope="col">Prix de Base</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% availableRooms.forEach(room => { %>
+                                <tr>
+                                    <td><%= room.id %></td>
+                                    <td><%= room.id_hotel %></td>
+                                    <td><%= room.room_type %></td>
+                                    <td><%= room.base_price %></td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
