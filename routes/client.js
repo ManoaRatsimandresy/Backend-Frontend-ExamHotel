@@ -38,8 +38,6 @@ router.get('/client.ejs', (req, res) => {
  router.post('/book', async (req, res) => {
      try {
          const roomId = req.body.roomId;
-         const startDate = req.body.start;
-         const endDate = req.body.end;
  
          // Effectuez votre insertion dans la table de réservation
          await db.none(`
