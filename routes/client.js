@@ -35,5 +35,30 @@ router.get('/client.ejs', (req, res) => {
          res.status(500).send('Erreur lors de la récupération des chambres disponibles');
      }
  });
+ router.post('/book', async (req, res) => {
+     try {
+         const roomId = req.body.roomId;
+         const startDate = req.body.start;
+         const endDate = req.body.end;
  
+         // Effectuez votre insertion dans la table de réservation
+         await db.none(`
+             INSERT INTO room_reservation (start_date, end_date, id_room)
+             VALUES ($1, $2, $3)
+         `, [startDate, endDate, roomId]);
+ 
+         // Répondez à la requête avec un message de succès
+         res.render('client', {
+             availableRooms: null,
+             successMessage: 'Réservation réussie',
+             startDate,
+             endDate,
+             city
+         });
+     } catch (error) {
+         console.error('Erreur lors de la réservation :', error);
+         res.status(500).json({ message: 'Erreur lors de la réservation' });
+     }
+ });
+
  module.exports = router;

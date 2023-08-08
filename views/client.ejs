@@ -83,7 +83,7 @@
             </div>
         </div>
         </div>
-        <div class="hotel_booking_area position hidden">
+        <div class="hotel_booking_area hidden">
             <div class="container">
                 <div class="hotel_booking_table">
                     <h2 class="mr-5">Search available Rooms</h2>
@@ -118,35 +118,35 @@
                     </form>
                 </div>
 
-                <div>
+                <div class="result mb-5 hotel_booking_table">
                     <% if (availableRooms) { %>
-                        <h2 class="mt-5">Chambres Disponibles</h2>
-                        <div class="row mt-3">
-                            <% availableRooms.forEach(room=> { %>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Chambre <%= room.id %>
-                                            </h5>
-                                            <p class="card-text">Hôtel <%= room.id_hotel %>
-                                            </p>
-                                            <p class="card-text">Type de Chambre: <%= room.room_type %>
-                                            </p>
-                                            <p class="card-text">Prix de Base: <%= room.base_price %>
-                                            </p>
-                                        </div>
+                        <h2 class="mr-5">Chambres Disponibles</h2>
+                        <div class="card-deck">
+                            <% availableRooms.forEach(room => { %>
+                                <div class="card mt-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Chambre <%= room.id %></h5>
+                                        <p class="card-text">Hôtel <%= room.id_hotel %></p>
+                                        <p class="card-text">Type de chambre <%= room.room_type %></p>
+                                        <p class="card-text">Prix de base <%= room.base_price %> AR</p>
+                                        <form action="/book" method="POST">
+                                            <button type="submit" class="btn btn-primary">book now</button>
+                                        </form>
                                     </div>
                                 </div>
-                                <% }); %>
+                            <% }); %>
+                            
                         </div>
-                        <% } %>
+                    <% } else { %>
+                        <p>Aucune chambre disponible pour les critères de recherche spécifiés.</p>
+                    <% } %>
                 </div>
             </div>
     </section>
     <!--================Banner Area =================-->
 
     <!--================ Accomodation Area  =================-->
-    <section class="accomodation_area section_gap" id="accomodation">
+    <section class="accomodation_area section_gap mt-5" id="accomodation">
         <div class="container hidden">
             <div class="section_title text-center hidden">
                 <h2 class="title_color hidden">Hotel Accomodation</h2>
