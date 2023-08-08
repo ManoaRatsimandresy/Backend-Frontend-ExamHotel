@@ -5,15 +5,16 @@ const path = require('path');
 const db = require('../db/db.js');
 
 router.get('/client.ejs', (req, res) => {
-    res.render('client');
-});
-
-router.get('/room_dispo', async (req, res) => {
-     try {
-         const selectedDate = req.query.date;
-         const selectedCity = req.query.city;
+     res.render('client', { availableRooms: null }); // Afficher le formulaire vide au début
+ });
  
-         // Récupérer les chambres disponibles dans la ville spécifiée pour la date spécifiée
+ router.post('/room_dispo', async (req, res) => {
+     try {
+         const startDate = req.body.startDate;
+         const endDate = req.body.endDate;
+         const city = req.body.city;
+ 
+         // Récupérer les chambres disponibles dans la ville spécifiée pour les dates spécifiées
          const availableRooms = await db.any(`
              SELECT r.id, r.id_hotel, rt.name AS room_type, rt.base_price
              FROM room r
@@ -23,16 +24,16 @@ router.get('/room_dispo', async (req, res) => {
              WHERE r.id NOT IN (
                  SELECT id_room
                  FROM room_reservation
-                 WHERE start_date <= $1 AND end_date >= $1
+                 WHERE start_date <= $1 AND end_date >= $2
              )
-             AND c.name = $2
-         `, [selectedDate, selectedCity]);
-         
-         res.render('room_dispo', { availableRooms }); 
+             AND c.name = $3
+         `, [startDate, endDate, city]);
+ 
+         res.render('client', { availableRooms }); // Afficher le formulaire avec la liste des chambres disponibles
      } catch (error) {
          console.error('Erreur lors de la récupération des chambres disponibles :', error);
          res.status(500).send('Erreur lors de la récupération des chambres disponibles');
      }
  });
  
-module.exports = router;
+ module.exports = router;

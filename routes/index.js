@@ -53,4 +53,8 @@ router.get('/all-booking.ejs', async (req, res) => {
  
      return `${year}-${month}-${day} ${hours}:${minutes}`;
  }
+router.get('/all-room.ejs', (req, res) =>{
+     res.render('all-room')
+})
+
 module.exports = router;
