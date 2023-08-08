@@ -32,13 +32,13 @@
 					<span class="text">Booking</span>
 				</a>
 			</li>
-			<li>
-				<a href="all-room.ejs">
+			<li class="active">
+				<a href="">
 					<i class='bx bxs-doughnut-chart' ></i>
 					<span class="text">Rooms</span>
 				</a>
 			</li>
-			<li class="active">
+			<li >
 				<a href="/all-employee.ejs">
 					<i class='bx bxs-group' ></i>
 					<span class="text">Employee</span>
@@ -74,7 +74,7 @@
 
 		<!-- MAIN -->
 		<main>
-			<h1 class="p-4 text-center"><b> Lists of employees</b></h1>
+			<h1 class="p-4 text-center"><b> Room Lists</b></h1>
         		<ul class="list-group">
 				<table class="table table-striped table-hover">
 
@@ -88,19 +88,7 @@
 							<th scope="col">Role</th>
 						</tr>
 					</thead>
-					<% employees.forEach(employee => { %>
-						<tbody>
-							<tr>
-								<td> <%= employee.first_name  %> </td>
-								<td> <%= employee.last_name  %> </td>
-								<td> <%= employee.society_name %> </td>
-								<td> <%= employee.number  %> </td>
-								<td> <%= employee.email  %> </td>
-								<td> <%= employee.name %> </td>
-							</tr>
-						</tbody>
 					
-				<% }); %>
 		</table>
 		
             
@@ -108,7 +96,7 @@
 		<div class="container__form container--signup">
             <form action="/signup" method="POST" class="form" id="form1">
 				<div class="text-center">
-					<h2><b>Add Employee</b></h2>
+					<h2><b>Add Room</b></h2>
 				</div>
                 <div class="mb-3">
 					<label for="exampleInputName" class="form-label">Name</label>
